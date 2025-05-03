@@ -54,7 +54,7 @@ GROUP BY c.City
 HAVING COUNT(DISTINCT od.ProductID) >= 2;
 
 -- List all Customers who have ordered products, 
--- but have the ¡¥ship city¡¦ on the order different from their own customer cities.
+-- but have the Â¡Â¥ship cityÂ¡Â¦ on the order different from their own customer cities.
 SELECT DISTINCT c.CompanyName AS Customers
 FROM Customers c
 JOIN Orders o ON c.CustomerID = o.CustomerID
@@ -137,13 +137,13 @@ JOIN (
 	     JOIN [Order Details] od ON o.OrderID = od.OrderID
 	     GROUP BY o.ShipCity
      ) AS TotalQuantity ON CountedOrder.City = TotalQuantity.City
--- MostTotalQuantity & MostCountedOrder
+-- MostTotalQuantity & MostCountedOrder City
 ORDER BY CountedOrder.Counted DESC, TotalQuantity.TotalQty DESC;
 
 -- How do you remove the duplicates record of a table?
 /* WITH CTE AS (
-	            SELECT *, ROW_NUMBER() OVER (PARTITION BY ... ORDER BY ID) AS ROW_NUM
-	            FROM ...
+	            SELECT *, ROW_NUMBER() OVER (PARTITION BY... ORDER BY ID) AS ROW_NUM
+	            FROM...
             )
 DELETE FROM CTE
 WHERE rn > 1; */
