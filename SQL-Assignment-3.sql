@@ -54,7 +54,7 @@ GROUP BY c.City
 HAVING COUNT(DISTINCT od.ProductID) >= 2;
 
 -- List all Customers who have ordered products, 
--- but have the ¡¥ship city¡¦ on the order different from their own customer cities.
+-- but have the 'ship city' on the order different from their own customer cities.
 SELECT DISTINCT c.CompanyName AS Customers
 FROM Customers c
 JOIN Orders o ON c.CustomerID = o.CustomerID
